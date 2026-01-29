@@ -17,19 +17,22 @@ Following CRISP-DM framework to do the analysis.
 
 - **Business Understanding**: main objective of this study is the find the best model that can explain the success of the bank marketing campaigns and the the attribute that lead to the success by comparing multiple classifier models
 
-- [**Data Understanding**](#Data-Understanding): understand the Bank [dataset](https://archive.ics.uci.edu/dataset/222/bank+marketing) that comes from the UCI Machine Learning reposiory. 
+- [**Data Understanding**](#Data-Understanding) : understand the Bank [dataset](https://archive.ics.uci.edu/dataset/222/bank+marketing) that comes from the UCI Machine Learning reposiory.
+  
     * The dataset 20 columns (10 numeric and others object). 
     * It has a column which specifies if a particular direct contact call was successful or not. 
     * The dataset has no missing values. 
     * The target column is unbalanced (~88% unsuccessful)
 
-- [**Data Preparation**](#Data-Preparation):
+- [**Data Preparation**](#Data-Preparation) :
+  
     * Cleaned data by [dropping columns](#Data Preparation 1) that provided little information or was added mainly for the purposes of benchmarking
     * Cleaned data by [dropping rows](#Data Preparation 2) by looking at columns with 'unknown' values which impact a low proportion of the total rows
     * Cleaned data by [imputing values](# Data Preparation 3) 
     * Transformed data using make_column_transformer and using OneHot and Ordinal encoders
 
-- [**Modeling**](#Modeling): Formed baseline for accuracy. 
+- [**Modeling**](#Modeling) :  Formed baseline for accuracy
+  
     * As the target is un balanced, it makes sense to keep the baseline as ~88% because a random guessing classifier could achieve that
     * Split transformed data by assigning 33% data to test. Also, stratified the split to address the imbalance in the target column
     * Did a Baseline model and comparison of baseline results using default values for the sklearn classifier models of:
@@ -39,7 +42,8 @@ Following CRISP-DM framework to do the analysis.
         4. Support Vector Machines
     * Tuned hyper parameters for each of these classifiers using GridSearchCV tool in sklearn
 
-- [**Evaluation**](#Model-Evaluation): the classifier models were evaluated using the following metrics
+- [**Evaluation**](#Model-Evaluation) : the classifier models were evaluated using the following metrics
+  
     * accuracy of the model prediction on test data
     * accuracy of the model prediction on training data
     * ROC-AUC score of the models (to see how they performed with False and True positive rates)
@@ -47,7 +51,8 @@ Following CRISP-DM framework to do the analysis.
     * time to train the model
     * clarity in explaination and resulting actionable conclusion from the results was considered
 
-- [**Deployment**](#Deployment): Identified actionable items for client based on results
+- [**Deployment**](#Deployment) : Identified actionable items for client based on results
+  
     * best model was evaluated to be Logistic Regression with hyper parameters:
         {'lgr__C': 0.01, 'lgr__penalty': 'l2', 'lgr__solver': 'liblinear'}
     * this model resulted in test accurace of 0.902, roc-auc score of 0.79 and Average Precision (AP) of 0.46
@@ -224,6 +229,7 @@ Did a grid search was done over the following:
              'dtree__criterion': ['gini', 'entropy', 'log_loss'],
              'dtree__min_samples_leaf': [1, 2, 3]
              }
+             
 As is clear from the table, well and its scores were close to the Logistic Regression though some metrics like average precision was much lower, in fact the minimum of all the classifiers
 
 **K Nearest Neighbor**
@@ -259,7 +265,6 @@ Took long time to train (2nd longest) over this grid and did not find a model th
 
 ### Findings and Recommendations
 -
-
 
 Summary
 -
