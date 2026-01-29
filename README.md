@@ -23,13 +23,13 @@ Following CRISP-DM framework to do the analysis.
     * The dataset has no missing values. 
     * The target column is unbalanced (~88% unsuccessful)
 
-- **Data Preparation**:
+- [**Data Preparation**](#Data-Preparation):
     * Cleaned data by [dropping columns](#Data Preparation 1) that provided little information or was added mainly for the purposes of benchmarking
     * Cleaned data by [dropping rows](#Data Preparation 2) by looking at columns with 'unknown' values which impact a low proportion of the total rows
     * Cleaned data by [imputing values](# Data Preparation 3) 
     * Transformed data using make_column_transformer and using OneHot and Ordinal encoders
 
-- **Modeling**: Formed baseline for accuracy. 
+- [**Modeling**](#Modeling): Formed baseline for accuracy. 
     * As the target is un balanced, it makes sense to keep the baseline as ~88% because a random guessing classifier could achieve that
     * Split transformed data by assigning 33% data to test. Also, stratified the split to address the imbalance in the target column
     * Did a Baseline model and comparison of baseline results using default values for the sklearn classifier models of:
@@ -39,7 +39,7 @@ Following CRISP-DM framework to do the analysis.
         4. Support Vector Machines
     * Tuned hyper parameters for each of these classifiers using GridSearchCV tool in sklearn
 
-- [**Evaluation**](#Model-evaluation): the classifier models were evaluated using the following metrics
+- [**Evaluation**](#Model-Evaluation): the classifier models were evaluated using the following metrics
     * accuracy of the model prediction on test data
     * accuracy of the model prediction on training data
     * ROC-AUC score of the models (to see how they performed with False and True positive rates)
@@ -47,7 +47,7 @@ Following CRISP-DM framework to do the analysis.
     * time to train the model
     * clarity in explaination and resulting actionable conclusion from the results was considered
 
-- Deployment: Identified actionable items for client based on results
+- [**Deployment**](#Deployment): Identified actionable items for client based on results
     * best model was evaluated to be Logistic Regression with hyper parameters:
         {'lgr__C': 0.01, 'lgr__penalty': 'l2', 'lgr__solver': 'liblinear'}
     * this model resulted in test accurace of 0.902, roc-auc score of 0.79 and Average Precision (AP) of 0.46
@@ -65,7 +65,8 @@ Following CRISP-DM framework to do the analysis.
 
 Look at all the categorical columns and see if there is something actionable to prepare the data
 
-[Add picture with data]
+<img width="1108" height="833" alt="Screenshot 2026-01-28 at 10 18 15 PM" src="https://github.com/user-attachments/assets/4ed74d45-0814-437a-9bd5-79fcf0b10f6e" />
+
 
 #### Conclusion from data exploration
 
@@ -75,7 +76,7 @@ From the initial exploration of data, we can drop:
 
     **duration**: this column is mainly for benchmarking and the guideline is this should be dropped
 
-### Data Preparation
+## Data Preparation
 
 #### Data Prepration 1 
 
@@ -83,7 +84,7 @@ There are unknown values for each of the attributes which do not provide any inf
 
 #### Data Preparation 2
 
-map unknown values in default to 'no' with assumption that defaulted accounts are important and would definitely be recorded as 'yes'. This is a corner case as the number of 'yes' values is quite small (0.000075). Perhaps a candidate to drop this column
+Map unknown values in 'default' column to 'no' with assumption that defaulted accounts are important and would definitely be recorded as 'yes'. This is a corner case as the number of 'yes' values is quite small (0.000075). Future-work: evaluate dropping this column
 
 #### Data Transormation
 
@@ -94,7 +95,8 @@ Transform the data in the following way:
     * Fix the column names after transformation to make them more readable
     * this results in 44 columns
 
-## Training and Test split
+### Training and Test split
+
     * Split the data with test size 0.33 after dropping 'y' column
     * set 'y' column as target data
     * this results in 26668 rows for training data and 13135 rows for test data
@@ -119,7 +121,8 @@ Following modes were analyzed:
 
     The other models were also run with default parameters. Following data frame records the results:
 
-      - add picture --
+      <img width="476" height="149" alt="Screenshot 2026-01-28 at 10 21 15 PM" src="https://github.com/user-attachments/assets/dc75090b-2110-4c00-898d-424fee70f8ed" />
+
 
 2. ### Improving models
 
@@ -156,9 +159,9 @@ Ran grid search for poly kernel with following parameters:
     svm_poly_params = {'svc__kernel': ['poly'],
               'svc__degree': [2, 3]}
 
-Used StandardScaler with Pipeline for all of the analysis above
+Used **StandardScaler** with Pipeline for all of the analysis above
 
-### Model Evaluation
+## Model Evaluation
 
 #### Criteria
 
@@ -168,7 +171,18 @@ Used StandardScaler with Pipeline for all of the analysis above
 - Precision-Recwas Logistic Regression for this metric with a score of 0.45
 -  Explainability 
 
-#### Evaluation
+### Evaluation
+
+#### Comparison visualization of different classifiers
+
+Comparison of metrics for different classifiers
+
+    <img width="1103" height="851" alt="Screenshot 2026-01-28 at 10 25 22 PM" src="https://github.com/user-attachments/assets/a11254cb-dc73-41a9-b0d8-43c49ddc9f82" />
+
+ROC-AUC and Precision-Recall curves for different classifiers
+
+    <img width="1084" height="494" alt="Screenshot 2026-01-28 at 10 26 39 PM" src="https://github.com/user-attachments/assets/0b116918-4110-4f0a-b9b7-5457e0ec0fdb" />
+
 
 **Summary**
 -
@@ -243,7 +257,7 @@ Took long time to train (2nd longest) over this grid and did not find a model th
 
 ## Deployment
 
-Findings and Recommendations
+### Findings and Recommendations
 -
 
 
