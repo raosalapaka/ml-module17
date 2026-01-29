@@ -177,11 +177,11 @@ Used **StandardScaler** with Pipeline for all of the analysis above
 
 Comparison of metrics for different classifiers
 
-    <img width="1103" height="851" alt="Screenshot 2026-01-28 at 10 25 22 PM" src="https://github.com/user-attachments/assets/a11254cb-dc73-41a9-b0d8-43c49ddc9f82" />
+   <img width="1103" height="851" alt="Screenshot 2026-01-28 at 10 25 22 PM" src="https://github.com/user-attachments/assets/a11254cb-dc73-41a9-b0d8-43c49ddc9f82" />
 
 ROC-AUC and Precision-Recall curves for different classifiers
 
-    <img width="1084" height="494" alt="Screenshot 2026-01-28 at 10 26 39 PM" src="https://github.com/user-attachments/assets/0b116918-4110-4f0a-b9b7-5457e0ec0fdb" />
+   <img width="1084" height="494" alt="Screenshot 2026-01-28 at 10 26 39 PM" src="https://github.com/user-attachments/assets/0b116918-4110-4f0a-b9b7-5457e0ec0fdb" />
 
 
 **Summary**
