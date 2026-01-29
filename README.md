@@ -134,6 +134,7 @@ Following modes were analyzed:
 #### Logistic Regression
 
   Ran grid search for Logistic Regression model with the following parameters:
+  
     lgr_params = {'lgr__penalty': ['l1', 'l2'],
               'lgr__solver': ['liblinear'],
               'lgr__C': [0.001, 0.01, 0.1]}
@@ -142,6 +143,7 @@ Following modes were analyzed:
 #### Decision Trees
 
 Ran grid search for Decision Tree with the following parameters:
+
     dtree_params = {
          'dtree__max_depth': range(2,11),
          'dtree__min_samples_split': [2, 4, 6],
@@ -152,15 +154,18 @@ Ran grid search for Decision Tree with the following parameters:
 #### K Nearest Neighbors
 
 Ran grid search for knn with the following parameters:
+
     knn_params = {'knn__n_neighbors': list(range(1,30,2))}
 
 #### Support Vector Machines
 
 Ran grid search for rbf kernel with following parameters:
+
     svm_rbf_params = {'svc__kernel': ['rbf'],
               'svc__C': [0.001, 0.01, 0.1, 1, 10]}
 
 Ran grid search for poly kernel with following parameters:
+
     svm_poly_params = {'svc__kernel': ['poly'],
               'svc__degree': [2, 3]}
 
