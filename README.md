@@ -17,7 +17,7 @@ Following CRISP-DM framework to do the analysis.
 
 - **Business Understanding**: main objective of this study is the find the best model that can explain the success of the bank marketing campaigns and the the attribute that lead to the success by comparing multiple classifier models
 
-- **Data Understanding**: understand the Bank [dataset](https://archive.ics.uci.edu/dataset/222/bank+marketing) that comes from the UCI Machine Learning reposiory. 
+- [**Data Understanding**](#Data-Understanding): understand the Bank [dataset](https://archive.ics.uci.edu/dataset/222/bank+marketing) that comes from the UCI Machine Learning reposiory. 
     * The dataset 20 columns (10 numeric and others object). 
     * It has a column which specifies if a particular direct contact call was successful or not. 
     * The dataset has no missing values. 
