@@ -44,6 +44,7 @@ Following CRISP-DM framework to do the analysis.
 
 - [**Evaluation**](#Model-Evaluation) : the classifier models were evaluated using the following metrics
   
+    * grid search with cross validation was used
     * accuracy of the model prediction on test data
     * accuracy of the model prediction on training data
     * ROC-AUC score of the models (to see how they performed with False and True positive rates)
